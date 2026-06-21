@@ -84,7 +84,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
       <div onClick={onClose} className="absolute inset-0 bg-slate-900/60 dark:bg-slate-950/80 backdrop-blur-sm" />
 
-      <div className="relative w-full max-w-md bg-white dark:bg-slate-900 rounded-t-[2rem] sm:rounded-3xl border-t sm:border border-slate-200/60 dark:border-slate-800/80 shadow-2xl p-6 pb-10 sm:pb-6 z-10 animate-slide-in-up sm:animate-slide-in">
+      <div className="relative w-full max-w-md bg-white dark:bg-slate-900 rounded-t-[2rem] sm:rounded-3xl border-t sm:border border-slate-200/60 dark:border-slate-800/80 shadow-2xl p-6 pb-10 sm:pb-6 z-10 animate-slide-in-up sm:animate-slide-in max-h-[90vh] overflow-y-auto">
         <div className="w-12 h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full mx-auto mb-6 sm:hidden" />
         <button onClick={onClose} className="absolute top-6 right-6 text-slate-400"><X className="w-6 h-6" /></button>
 
