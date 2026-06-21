@@ -5,8 +5,7 @@ import {
   Wallet,
   FileText,
   ShieldCheck,
-  Settings as SettingsIcon,
-  PiggyBank
+  Settings as SettingsIcon
 } from 'lucide-react';
 
 export type NavTab = 'dashboard' | 'transactions' | 'budgets' | 'reports' | 'assessment' | 'settings';
@@ -34,12 +33,10 @@ export const Navigation: React.FC<NavigationProps> = ({
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex flex-col w-64 fixed inset-y-0 left-0 bg-white dark:bg-slate-900 border-r border-slate-200/60 dark:border-slate-800/80 p-6 z-30">
         <div className="flex items-center gap-3 mb-8 px-2">
-          <div className="bg-gradient-to-tr from-brand-600 to-indigo-500 text-white p-2.5 rounded-xl shadow-md shadow-brand-500/20">
-            <PiggyBank className="w-6 h-6" />
-          </div>
+          <img src="/logo.png" alt="NEXUS Logo" className="w-11 h-11 rounded-xl object-cover shadow-md" />
           <div>
-            <h1 className="font-display font-bold text-xl tracking-tight text-slate-800 dark:text-slate-100 leading-none">SmartBudget</h1>
-            <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest font-semibold mt-1 block">Local & Secure</span>
+            <h1 className="font-display font-bold text-xl tracking-tight text-slate-800 dark:text-slate-100 leading-none">NEXUS</h1>
+            <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest font-semibold mt-1 block">Connecting habits to wealth.</span>
           </div>
         </div>
 

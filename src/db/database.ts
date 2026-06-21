@@ -1,7 +1,7 @@
 import Dexie, { type Table } from 'dexie';
 import type { Transaction, RecurringTransaction, Budget, MonthlyReport, Settings, MonthlySnapshot } from '../types';
 
-export class SmartBudgetDatabase extends Dexie {
+export class NexusDatabase extends Dexie {
   transactions!: Table<Transaction, number>;
   recurring_transactions!: Table<RecurringTransaction, number>;
   budgets!: Table<Budget, number>;
@@ -10,7 +10,7 @@ export class SmartBudgetDatabase extends Dexie {
   monthly_snapshots!: Table<MonthlySnapshot, number>;
 
   constructor() {
-    super('SmartBudgetDB');
+    super('NexusDB');
     this.version(1).stores({
       transactions: '++id, amount, transaction_type, category, date, created_at',
       recurring_transactions: '++id, name, amount, transaction_type, category, frequency, start_date, is_active',
@@ -22,7 +22,7 @@ export class SmartBudgetDatabase extends Dexie {
   }
 }
 
-export const db = new SmartBudgetDatabase();
+export const db = new NexusDatabase();
 
 // Seed initial default settings if they don't exist
 db.on('ready', async () => {

@@ -90,7 +90,7 @@ export const Settings: React.FC<SettingsProps> = ({
           showToast('Data imported and database synchronized successfully!', 'success');
         }
       } catch (err) {
-        showToast('Import failed. Make sure the file is a valid SmartBudget backup JSON.', 'error');
+        showToast('Import failed. Make sure the file is a valid NEXUS backup JSON.', 'error');
       } finally {
         setImporting(false);
         if (fileInputRef.current) fileInputRef.current.value = '';
@@ -178,7 +178,7 @@ export const Settings: React.FC<SettingsProps> = ({
           <Card className="bg-gradient-to-tr from-brand-50/20 dark:from-brand-950/10 border-l-4 border-l-brand-500">
             <CardHeader title="Offline Isolation Architecture" subtitle="How your data is kept secure" />
             <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-              SmartBudget uses **IndexedDB via Dexie.js** to isolate 100% of your transaction activities in your local browser sandbox. No user registration, server-sync cookies, analytics scripts, or remote endpoints are implemented. 
+              NEXUS uses **IndexedDB via Dexie.js** to isolate 100% of your transaction activities in your local browser sandbox. No user registration, server-sync cookies, analytics scripts, or remote endpoints are implemented. 
             </p>
             <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-400 mt-3">
               Because all data is stored strictly in your browser cache memory, performing a full browser cache delete or deleting offline website data might remove these records. Be sure to use the **Backup Export** utility on the right to preserve records periodically.
