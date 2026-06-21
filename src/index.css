@@ -5,8 +5,22 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    /* Prevent iOS font size auto-adjust on orientation change */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Enable momentum scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    /* Fill the full safe area on notched devices */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
   body {
     @apply font-sans bg-white text-slate-900 transition-colors duration-200;
+    /* Prevent unwanted tap callouts on mobile */
+    -webkit-tap-highlight-color: transparent;
+    /* Smooth scroll on iOS */
+    overscroll-behavior: none;
   }
 
   /* NOIR DARK MODE: Purest blacks and clean gray text */
