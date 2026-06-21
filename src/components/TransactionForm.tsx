@@ -122,6 +122,17 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({
             <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="w-full bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-brand-500 outline-none" required />
           </div>
 
+          <div>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Note <span className="normal-case font-normal">(optional)</span></label>
+            <textarea
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              placeholder="Add a description..."
+              rows={2}
+              className="w-full bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-3 text-sm focus:border-brand-500 outline-none resize-none"
+            />
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-3 pt-4">
             <Button type="submit" variant={type === 'Expense' ? 'primary' : 'success'} loading={isSubmitting} className="w-full py-4 text-lg rounded-2xl order-1 sm:order-2">
               {transactionToEdit ? 'Update' : 'Confirm'}
