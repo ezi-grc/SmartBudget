@@ -30,7 +30,7 @@ interface TransactionsProps {
 }
 
 const INCOME_CATEGORIES = ['Salary', 'Allowance', 'Freelance', 'Business', 'Scholarship', 'Gift', 'Investment', 'Other'];
-const EXPENSE_CATEGORIES = ['Food', 'Transportation', 'Rent', 'Utilities', 'Education', 'Entertainment', 'Shopping', 'Healthcare', 'Savings', 'Subscriptions', 'Other'];
+const EXPENSE_CATEGORIES = ['Food', 'Transportation', 'Rent', 'Utilities', 'Education', 'Entertainment', 'Shopping', 'Healthcare', 'Savings', 'Subscriptions', 'Tithe', 'Other'];
 const ALL_CATEGORIES = [...INCOME_CATEGORIES, ...EXPENSE_CATEGORIES];
 
 export const Transactions: React.FC<TransactionsProps> = ({

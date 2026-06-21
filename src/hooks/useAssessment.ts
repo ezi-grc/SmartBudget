@@ -30,6 +30,9 @@ export interface AssessmentResult {
   
   // Section E: Personalized Recommendations
   recommendations: string[];
+
+  // Section F: Tithe
+  titheSpent: number;
 }
 
 export function useAssessment(
@@ -67,6 +70,8 @@ export function useAssessment(
         categoryTotals[t.category] = (categoryTotals[t.category] || 0) + amount;
       }
     });
+
+    const titheSpent = categoryTotals['Tithe'] || 0;
 
     const netSavings = totalIncome - totalExpenses;
     const savingsRate = totalIncome > 0 ? (netSavings / totalIncome) * 100 : 0;
@@ -157,7 +162,7 @@ export function useAssessment(
     // Penalty if any category except Rent/Savings is consuming more than 40% of total expenses
     let scoreDistribution = 15;
     const problematicCategories = Object.entries(categoryTotals).filter(
-      ([cat, amt]) => cat !== 'Rent' && cat !== 'Savings' && totalExpenses > 0 && (amt / totalExpenses) > 0.4
+      ([cat, amt]) => cat !== 'Rent' && cat !== 'Savings' && cat !== 'Tithe' && totalExpenses > 0 && (amt / totalExpenses) > 0.4
     );
     if (problematicCategories.length > 0) {
       scoreDistribution = 5; // Penalty
@@ -277,6 +282,7 @@ export function useAssessment(
       savingsMessage,
       budgetCategoryStatuses,
       recommendations,
+      titheSpent,
     };
   }, [transactions, budgets, selectedMonth, selectedYear]);
 }

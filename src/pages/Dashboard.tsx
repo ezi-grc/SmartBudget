@@ -7,7 +7,8 @@ import {
   Calendar,
   ArrowUpRight,
   ArrowDownRight,
-  ArrowLeftRight
+  ArrowLeftRight,
+  Church
 } from 'lucide-react';
 import { 
   PieChart, Pie, Cell, 
@@ -237,7 +238,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
       </div>
 
       {/* A. Summary Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5">
         {/* Card 1: Balance (Lifetime) */}
         <Card hoverable className="relative overflow-hidden group">
           <div className="absolute right-0 bottom-0 translate-x-3 translate-y-3 opacity-5 text-slate-800 dark:text-white group-hover:scale-110 transition-transform">
@@ -322,6 +323,55 @@ export const Dashboard: React.FC<DashboardProps> = ({
             {assessment.healthCategory}
           </span>
         </Card>
+
+        {/* Card 6: Tithe */}
+        {(() => {
+          const titheGoal = assessment.totalIncome * 0.10;
+          const tithePaid = assessment.titheSpent;
+          const titheRemaining = Math.max(0, titheGoal - tithePaid);
+          const tithePct = titheGoal > 0 ? Math.min(100, (tithePaid / titheGoal) * 100) : 0;
+          const titheFulfilled = tithePaid >= titheGoal && titheGoal > 0;
+          return (
+            <Card hoverable className="relative overflow-hidden group border-l-4 border-l-amber-500 bg-gradient-to-br from-amber-50/20 dark:from-amber-950/10">
+              <div className="absolute right-0 bottom-0 translate-x-3 translate-y-3 opacity-5 text-amber-500">
+                <Church className="w-28 h-28" />
+              </div>
+              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                Tithe
+              </p>
+              <h3 className={`text-2xl font-bold font-display mt-2 tracking-tight ${
+                titheFulfilled ? 'text-amber-600 dark:text-amber-400' : 'text-slate-800 dark:text-slate-100'
+              }`}>
+                {currency}{tithePaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </h3>
+              <p className="text-[10px] text-slate-400 mt-1">
+                Goal: <span className="font-semibold">{currency}{titheGoal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                {' '}(10% of income)
+              </p>
+              {titheGoal > 0 && (
+                <div className="mt-2">
+                  <div className="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div
+                      className={`h-full rounded-full transition-all ${
+                        titheFulfilled ? 'bg-amber-500' : 'bg-amber-400'
+                      }`}
+                      style={{ width: `${tithePct}%` }}
+                    />
+                  </div>
+                  <p className="text-[9px] text-slate-400 mt-1">
+                    {titheFulfilled
+                      ? '✓ Tithe fulfilled this month'
+                      : `${currency}${titheRemaining.toLocaleString(undefined, { maximumFractionDigits: 2 })} remaining`
+                    }
+                  </p>
+                </div>
+              )}
+              {titheGoal === 0 && (
+                <p className="text-[9px] text-slate-400 mt-1 italic">Add income to see goal</p>
+              )}
+            </Card>
+          );
+        })()}
       </div>
 
       {/* Main Content Layout Grid */}

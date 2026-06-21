@@ -21,6 +21,7 @@ export type ExpenseCategory =
   | 'Healthcare'
   | 'Savings'
   | 'Subscriptions'
+  | 'Tithe'
   | 'Other';
 
 export type TransactionCategory = IncomeCategory | ExpenseCategory;

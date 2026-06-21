@@ -12,7 +12,7 @@ interface TransactionFormProps {
 }
 
 const INCOME_CATEGORIES = ['Salary', 'Allowance', 'Freelance', 'Business', 'Scholarship', 'Gift', 'Investment', 'Other'] as const;
-const EXPENSE_CATEGORIES = ['Food', 'Transportation', 'Rent', 'Utilities', 'Education', 'Entertainment', 'Shopping', 'Healthcare', 'Savings', 'Subscriptions', 'Other'] as const;
+const EXPENSE_CATEGORIES = ['Food', 'Transportation', 'Rent', 'Utilities', 'Education', 'Entertainment', 'Shopping', 'Healthcare', 'Savings', 'Subscriptions', 'Tithe', 'Other'] as const;
 
 export const TransactionForm: React.FC<TransactionFormProps> = ({
   isOpen,

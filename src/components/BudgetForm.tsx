@@ -23,6 +23,7 @@ const EXPENSE_CATEGORIES: ExpenseCategory[] = [
   'Healthcare',
   'Savings',
   'Subscriptions',
+  'Tithe',
   'Other'
 ];
 
