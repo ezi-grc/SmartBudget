@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-white text-slate-900 transition-colors duration-200;
+  }
+
+  /* NOIR DARK MODE: Purest blacks and clean gray text */
+  html.dark body {
+    background-color: #050505; /* Deep Noir */
+    color: #E5E5E5;
+  }
+}
+
+/* Monochrome Scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1); 
+  border-radius: 9999px;
+}
+
+/* DARK MODE OVERRIDES: Forcing Grayscale on components */
+.dark .bg-white, 
+.dark .bg-slate-900,
+.dark .glass-panel {
+  background-color: #121212 !important; /* Card background */
+}
+
+.dark .border-slate-200, 
+.dark .border-slate-800,
+.dark .border-slate-200\/60 {
+  border-color: #262626 !important; /* Border color */
+}
+
+/* Monochrome Gradients (Removing purple/emerald) */
+.text-gradient-purple {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-500;
+}
+
+.text-gradient-emerald {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-200 to-slate-500;
+}
+
+/* UI Animations (Preserved) */
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+.animate-soft-pulse { animation: soft-pulse 2s infinite ease-in-out; }
+
+@keyframes slide-in {
+  from { transform: translateY(1rem) scale(0.95); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+.animate-slide-in { animation: slide-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* Mobile Slide-Up */
+@keyframes slide-in-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.animate-slide-in-up { animation: slide-in-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+.pb-safe { padding-bottom: env(safe-area-inset-bottom, 1rem); }
