@@ -178,10 +178,11 @@ export const Settings: React.FC<SettingsProps> = ({
           <Card className="bg-gradient-to-tr from-brand-50/20 dark:from-brand-950/10 border-l-4 border-l-brand-500">
             <CardHeader title="Offline Isolation Architecture" subtitle="How your data is kept secure" />
             <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-              NEXUS uses **IndexedDB via Dexie.js** to isolate 100% of your transaction activities in your local browser sandbox. No user registration, server-sync cookies, analytics scripts, or remote endpoints are implemented. 
+              100% Private. No Servers. No Tracking.
+              NEXUS saves your transactions locally in your browser sandbox. We don't implement user accounts, cookies, or remote tracking. Your data is entirely yours.
             </p>
             <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-400 mt-3">
-              Because all data is stored strictly in your browser cache memory, performing a full browser cache delete or deleting offline website data might remove these records. Be sure to use the **Backup Export** utility on the right to preserve records periodically.
+              Because your data is stored entirely inside your browser, clearing your internet history, browser cookies, or offline site data will permanently delete your records. To keep your data safe, please use the Backup Export tool on the right to save a copy periodically.
             </p>
           </Card>
         </div>
